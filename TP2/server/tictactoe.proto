@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package tictactoe;
+
+service TicTacToe {
+  rpc getplay(Message) returns (Message) {}
+  rpc createsession(Session) returns (Session) {}
+}
+
+message Empty {}
+
+message Message {
+  string play = 1;
+  optional string message = 2;
+}
+
+message Session {}
