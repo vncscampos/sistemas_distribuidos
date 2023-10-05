@@ -22,7 +22,8 @@ class Rpc {
 
     this.client.createsession({}, (error) => {
       if (error) {
-        console.error('Falha na conexão');
+        console.error("Falha na conexão");
+        alert("Falha ao conectar");
       }
     });
   }
@@ -34,7 +35,6 @@ class Rpc {
         return;
       }
 
-      console.log(play, message);
       setServerPlay(play);
 
       if (message) {

@@ -18,6 +18,7 @@ function getPlay(call, callback) {
 
   if (tictactoeGame.checkWin(tictactoeGame.clientPlays)) {
     message = "Resultado: Jogador X ganhou!";
+    play = "X";
   } else if (tictactoeGame.clientPlays.length === 5) {
     message = "Resultado: Empate!";
     tictactoeGame = null;

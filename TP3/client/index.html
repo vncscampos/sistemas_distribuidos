@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Chat</title>
+</head>
+
+<body>
+  <div class="box">
+    <h1>Chat</h1>
+    <br>
+    <div class="inputs">
+      <div>
+        <legend>IP da conexão:</legend>
+        <input type="text" id="ip" name="ip" value="127.0.0.1">
+      </div>
+      <div>
+        <legend>Porta:</legend>
+        <input type="text" id="port" name="port" value="3333">
+      </div>
+      <button class="connection-button" data-connect-button>
+        Conectar
+      </button>
+    </div>
+    
+    <div class="chat">
+      <div class="messages">
+      </div>
+      <div class="input-message">
+        <input placeholder="Digite sua mensagem" type="text" id="msg" name="msg" value="">
+        <button class="connection-button" data-message-button>
+          Enviar
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="./src/scripts.js"></script>
+</body>
+
+</html>

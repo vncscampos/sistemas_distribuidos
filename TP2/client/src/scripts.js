@@ -29,6 +29,7 @@ const handleClick = (e) => {
 };
 
 const setServerPlay = (data) => {
+  if(data === "X") return;
   const cell = document.getElementById(data);
   cell.classList.add("circle");
 };
