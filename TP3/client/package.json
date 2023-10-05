@@ -14,7 +14,6 @@
     "electron": "^26.2.0"
   },
   "dependencies": {
-    "@grpc/grpc-js": "^1.9.3",
-    "ws": "^8.14.2"
+    "@grpc/grpc-js": "^1.9.3"
   }
 }

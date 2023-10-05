@@ -1,4 +1,4 @@
-const WebSocket = require("ws");
+const net = require("net");
 
 const connectButton = document.querySelector("[data-connect-button]");
 const messageButton = document.querySelector("[data-message-button]");
@@ -9,11 +9,10 @@ const createConnection = () => {
   const ip = document.getElementById("ip").value;
   const port = document.getElementById("port").value;
 
-  socket = new WebSocket(`ws://${ip}:${port}`);
+  socket = new net.Socket();
 
-  socket.on("open", () => {
-    console.log("Conexão estabelecida");
-    alert("Conexão estabelecida");
+  socket.connect(port, ip, () => {
+    alert('Conexão estabelecida')
   });
 
   listenServer();
@@ -22,25 +21,25 @@ const createConnection = () => {
 const sendMessage = () => {
   const msg = document.getElementById("msg").value;
 
-  printMessage('client', msg);
-  socket.send(msg);
+  printMessage("client", msg);
+  socket.write(msg);
 
   document.getElementById("msg").value = "";
 };
 
 const listenServer = () => {
-  socket.on("message", (data) => {
-    printMessage('server', data.toString("utf-8"));
+  socket.on("data", (data) => {
+    printMessage("server", data.toString("utf-8"));
   });
 };
 
 const printMessage = (from, msg) => {
-  const messagesDiv = document.querySelector('.messages');
-  const spanElement = document.createElement('span');
+  const messagesDiv = document.querySelector(".messages");
+  const spanElement = document.createElement("span");
   spanElement.innerHTML = msg;
-  spanElement.className = from === 'client' ? 'msgreq' : 'msgres';
+  spanElement.className = from === "client" ? "msgreq" : "msgres";
   messagesDiv.appendChild(spanElement);
-}
+};
 
 connectButton.addEventListener("click", createConnection);
 messageButton.addEventListener("click", sendMessage);
