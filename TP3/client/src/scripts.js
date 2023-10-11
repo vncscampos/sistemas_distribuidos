@@ -1,9 +1,8 @@
-const net = require("net");
-
 const connectButton = document.querySelector("[data-connect-button]");
 const messageButton = document.querySelector("[data-message-button]");
 
 var socket = null;
+const net = require("net");
 
 const createConnection = () => {
   const ip = document.getElementById("ip").value;
